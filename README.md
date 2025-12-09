@@ -2,21 +2,23 @@ Wiping and Imaging Computers
 ============================
 This series of youtube videos show how to 
 1. Wipe disks using the hardware secure erase functions, (part of the SATA disk functions), to secure erase a disk using hdparm (Part 15)
-2. Create a Linux image to boot into Pre-Execution Environment using chroot (Part18 and 25), add a script to manage hdparm and erase a disk (Parts 16, and 17)
+2. Create a Linux image to boot into Pre-Execution Environment using chroot (Part 18, 19n and 25), add a script to manage hdparm and erase a disk (Parts 16, 17 and 26)
 3. Erase eMMC and NVME disks using SATA commands (Parts 45 and 46)
 4. Write a Splash screen after erasure, so when a disk boots it dispays a message such as "Erased on dd/mm/yy using xxx" (Part 21)
-5. Create reference Windows 10/11 images on hyper-V, capture and deploy them (Part 31)
-6. Setup a workshop Network Boot system (ISC dhcp, tftp, nginx, samba) to network boot into Windows Pre-Execution Environment (Parts 22, 23 and 28)
-7. Setup a portable Network Boot system with Proxy DHCP using DNSMASQ - usable on the office LAN (Part 23-bis and Part23-ter)
-8. Setup the boot server to provide routing of an internet service for the install environment Windows Update and Drivers (Part 29)
-9. Extract a boot.wim file for WinPE from the Recovery Environment (Part 52)
-10. Use Wifi in WinPE (Part 7)
-11. Modify boot.wim startnet.cmd to display a menu in WinPE
-12. Adding Drivers, Powershell to boot.wim (Part and 53)
-13. Create Bootable USBs with Diskpart to boot into PXE using PXELinux and Grub
-14. Use Network Share (Samba) to install reference images
-15. Check if a disk has been wiped by reading track 0
-16. Send wiped / imaged data to a inventory management system
+5. Create reference Windows 10/11 images on hyper-V, capture and deploy them (Part 31, 33 and 36), deploy to USBs (Part 39)
+6. Extract a boot.wim file for WinPE from the Recovery Environment (Part 52), add drivers (Part 4 and 5), add Wifi (Part 7), modify startnet (Part 38), add Powershell (Part 53)
+7. Setup a workshop Network Boot system (ISC dhcp, tftp, nginx, samba) to network boot into Windows Pre-Execution Environment (Parts 22, 23 and 28)
+8. Setup a portable Network Boot system with Proxy DHCP using DNSMASQ - usable on the office LAN (Part 23-bis ant 23-tre)
+9. Setup the boot server to provide routing of an internet service for the install environment Windows Update and Drivers (Part 29)
+10. Create USBs with M/S Diskpart to boot into PXE Win PE.  (Part 6)
+11. Create USBs with grub and PXELinux to boot into PXE (Part 8 and 40), Ventoy (Part 41)
+12. Boot WinPE using Grub (Part 6, 24 and 40)
+13. Enhance Grub with themes (Part 10) and secure boot (Part 11)
+14. Boot WinPE in UEFI with iPXE (Part 27)
+15. Boot PXE / WinPE in Legacy mode with PXELinux (Part 37)
+16. Use Network Share (Samba) to install reference images (Part 28)
+17. Check if a disk has been wiped or encrypted by reading track 0 (Part 42, 43 and 44))
+18. Send wiped / imaged data to a inventory management system (Part 48, 49, 50 and 51)
 
 Files that are used and described in:
 YouTube [Channel]( https://www.youtube.com/playlist?list=PLva258t-0AhzxRBGW-IaGmlmDIgnmjdft) 
@@ -33,11 +35,11 @@ YouTube [Channel]( https://www.youtube.com/playlist?list=PLva258t-0AhzxRBGW-IaGm
 
 [Part5 Add Drivers to WinPE boot.wim using DISM](https://www.youtube.com/watch?v=bGDtoFNLBFU)
 
-[Part6 Create a bootable USB with Diskpart](https://www.youtube.com/watch?v=MxRU0CJUDAg)
+[Part6 Create a bootable USB with Diskpart to install M/S Windows](https://www.youtube.com/watch?v=MxRU0CJUDAg)
 
 [Part7 Connect to a Share from WinPE with Ethernet cable and wifi](https://youtu.be/uuDAeKaCqzM)
 
-[Part8 Create bootable USB (BIOS and UEFI) using Grub](https://www.youtube.com/watch?v=oqeh-BnGe9o)
+[Part8 Grub bootable USB (BIOS and UEFI)](https://www.youtube.com/watch?v=oqeh-BnGe9o)
 
 [Part9 Grub bootable USB, add WinPE to menu for BIOS and UEFI modes](https://youtu.be/4mPJZ2_2otk)
 
@@ -71,8 +73,6 @@ YouTube [Channel]( https://www.youtube.com/playlist?list=PLva258t-0AhzxRBGW-IaGm
 
 [Part23-bis Setup a bootp server using DNSMASQ with proxy DHCP](https://www.youtube.com/watch?v=fWyyQ5SKQAE)
 
-[Part23-ter Wiping and Imaging computers. A PXE Boot Server Portable plug and play Appliance](https://youtu.be/aoVmp4Hz1Nw)
-
 [Part24 Legacy/BIOS and UEFI network booting Grub](https://youtu.be/plujEnt_bqc)
 
 [Part25 Create a network bootable Linux PXE image to run wipe scripts](https://youtu.be/xVrb9LZRX00)
@@ -105,7 +105,7 @@ YouTube [Channel]( https://www.youtube.com/playlist?list=PLva258t-0AhzxRBGW-IaGm
 
 [Part39 Deploy New Image to USBs](https://youtu.be/Y_07OWeugOc)
 
-[Part40 Two ways to boot USB to WInPE with Grub](https://youtu.be/8I4jPYtftyM)
+[Part40 Two ways to boot USB to WinPE with Grub](https://youtu.be/8I4jPYtftyM)
 
 [Part41 Boot USB to WinPE with Ventoy](https://www.youtube.com/watch?v=wBFgagpiW2k)
 
@@ -122,6 +122,8 @@ YouTube [Channel]( https://www.youtube.com/playlist?list=PLva258t-0AhzxRBGW-IaGm
 [Part47 Using iSCSI as a High Speed Shared Data Source](https://youtu.be/Ijtx5AlEDAs)
 
 [Part48 Using Django to log wiping and imaging events. Setup in Windows](https://www.youtube.com/watch?v=L8bw1bGpYzo)
+
+[Part49 Sending Imaging Events to Django from Windows using Powershell](https://youtu.be/HKzFlarJirY)
 
 [Part50 Using Django to log Wiping and Imaging Events. Setup in Linux](https://www.youtube.com/watch?v=HKCnrqdqvbc)
 
