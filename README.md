@@ -2,18 +2,18 @@ Wiping and Imaging Computers
 ============================
 This series of youtube videos show how to 
 1. Wipe disks using the hardware secure erase functions, (part of the SATA disk functions), to secure erase a disk using hdparm (Part 15)
-2. Create a Linux image to boot into Pre-Execution Environment using chroot (Part18), add a script to manage hdparm and erase a disk (Parts 16, 17 and 26)
+2. Create a Linux image to boot into Pre-Execution Environment using chroot (Part18 and 25), add a script to manage hdparm and erase a disk (Parts 16, and 17)
 3. Erase eMMC and NVME disks using SATA commands (Parts 45 and 46)
 4. Write a Splash screen after erasure, so when a disk boots it dispays a message such as "Erased on dd/mm/yy using xxx" (Part 21)
 5. Create reference Windows 10/11 images on hyper-V, capture and deploy them (Part 31)
 6. Setup a workshop Network Boot system (ISC dhcp, tftp, nginx, samba) to network boot into Windows Pre-Execution Environment (Parts 22, 23 and 28)
-7. Setup a Network Boot system with Proxy DHCP using DNSMASQ - usable on the office LAN (Part 23-bis)
-8. Setup the boot server to provide routing of an internet service for the install environment Windows Update and Drivers
+7. Setup a portable Network Boot system with Proxy DHCP using DNSMASQ - usable on the office LAN (Part 23-bis and Part23-ter)
+8. Setup the boot server to provide routing of an internet service for the install environment Windows Update and Drivers (Part 29)
 9. Extract a boot.wim file for WinPE from the Recovery Environment (Part 52)
-10. Use Wifi in WinPE
+10. Use Wifi in WinPE (Part 7)
 11. Modify boot.wim startnet.cmd to display a menu in WinPE
-12. Adding Drivers, Powershell to boot.wim
-13. Create USBs with Diskpart to boot into PXE using PXELinux and Grub
+12. Adding Drivers, Powershell to boot.wim (Part and 53)
+13. Create Bootable USBs with Diskpart to boot into PXE using PXELinux and Grub
 14. Use Network Share (Samba) to install reference images
 15. Check if a disk has been wiped by reading track 0
 16. Send wiped / imaged data to a inventory management system
@@ -70,6 +70,8 @@ YouTube [Channel]( https://www.youtube.com/playlist?list=PLva258t-0AhzxRBGW-IaGm
 [Part23 Setup a tftp network boot server - tftp configuration](https://www.youtube.com/watch?v=i2OPOmaabbQ)
 
 [Part23-bis Setup a bootp server using DNSMASQ with proxy DHCP](https://www.youtube.com/watch?v=fWyyQ5SKQAE)
+
+[Part23-ter Wiping and Imaging computers. A PXE Boot Server Portable plug and play Appliance](https://youtu.be/aoVmp4Hz1Nw)
 
 [Part24 Legacy/BIOS and UEFI network booting Grub](https://youtu.be/plujEnt_bqc)
 
