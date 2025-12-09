@@ -1,0 +1,79 @@
+# Red Server pxeLinux Menu
+# 27/1/20 Updated MINT to 19.3
+# 20/04/21 added http for speed
+UI vesamenu.c32
+MENU TITLE Red Server Legacy/BIOS Menu V2.3
+MENU RESOLUTION 1024 768
+MENU BACKGROUND /pxelinux.cfg/background.png
+
+MENU WIDTH 126
+MENU MARGIN 2
+#MENU PASSWORDMARGIN 3
+MENU ROWS -1
+
+MENU TABMSGROW -2
+MENU CMDLINEROW -2
+#MENU PASSWORDROW -11
+MENU TIMEOUTROW -18
+#MENU HELPMSGROW -17
+#MENU HELPMSGENDROW -2
+MENU HIDDENROW -2
+#MENU HSHIFT 0
+#MENU VSHIFT 4
+ALLOWOPTIONS 0
+
+MENU SEPARATOR
+LABEL Blancco Wipe Rig
+  LINUX memdisk
+  INITRD ../blancco/blancco_7.15.1_wiperig.iso
+  APPEND iso
+
+MENU SEPARATOR
+LABEL Blancco Drive Eraser (Standard)
+  LINUX memdisk
+  INITRD ../blancco/blancco_7.15.1_standard.iso
+  APPEND iso
+
+MENU SEPARATOR
+LABEL Blancco Hardware Tests
+  LINUX memdisk
+  INITRD ../blancco/blancco_7.15.1_hwtest.iso
+  APPEND iso
+
+MENU SEPARATOR
+LABEL Imaging Menu
+  Kernel vesamenu.c32
+  append pxelinux.cfg/imaging
+
+#label wipe 
+#	menu label ^Secure Disk Wipe Utility 686
+#	kernel http://${next-server}/wipe/vmlinuz 
+#	append initrd=http://${next-server}/wipe/initrdv3
+
+MENU SEPARATOR
+LABEL  Hardware Detection Tool
+  KERNEL hdt.c32
+  text help
+
+
+  
+  Reports and tests Memory
+  Reboot when finished
+  endtext
+
+MENU SEPARATOR
+LABEL Reboot
+  KERNEL reboot.c32
+
+MENU SEPARATOR
+LABEL About
+  text help
+  
+  Integrated Wipe Build and Install System
+  Version 2.3 August 2025 Updated MINT to 22.3
+  Version 2.2 March 2022 Updated MINT to 20.0
+  Version 2.1 January 2020 Updated MINT to 19.3
+  Version 2.0 December 2019 Release To production Version
+
+  Built on Linux Mint Cinammon using pxeLinux Pre Execution Environment
+  endtext

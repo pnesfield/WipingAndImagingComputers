@@ -1,0 +1,10 @@
+#!ipxe
+# ipxe menu v1.2
+# 9/12/25 Generalize networking
+kernel http://${66:string}/boot/wimboot/wimboot
+initrd http://${66:string}/boot/wimboot/bcd
+initrd http://${66:string}/boot/wimboot/boot.sdi
+initrd http://${66:string}/boot/winpe/startnet.cmd
+initrd http://${66:string}/boot/winpe/wait.cmd
+initrd http://${66:string}/boot/winpe/boot.wim
+boot

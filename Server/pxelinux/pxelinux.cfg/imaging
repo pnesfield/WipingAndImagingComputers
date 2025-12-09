@@ -1,0 +1,116 @@
+# Turing Server Imaging Menu
+# 11/11/19 MINT Cinnamon systemd bug https://bugs.launchpad.net/ubuntu/+source/systemd/+bug/1755863 .mask=tmp.mount or starts in emergency mode
+# 27/1/20 Updated MINT to 19.3
+# 4/3/20 created development submenu
+# 20/04/21 added http for speed
+# 5/11/22 Use Windows10 installers menu
+# 8/9/225 Added Zorin
+# 9/12/25 Generalize networking 
+# 
+UI vesamenu.c32
+MENU TITLE Red Server - Imaging Menu V3.0
+MENU RESOLUTION 1024 768
+MENU BACKGROUND /pxelinux.cfg/background.png
+
+MENU WIDTH 126
+MENU MARGIN 2
+#MENU PASSWORDMARGIN 3
+MENU ROWS -1
+
+MENU TABMSGROW -2
+MENU CMDLINEROW -2
+#MENU PASSWORDROW -11
+MENU TIMEOUTROW -18
+#MENU HELPMSGROW -17
+#MENU HELPMSGENDROW -2
+MENU HIDDENROW -2
+#MENU HSHIFT 0
+#MENU VSHIFT 4
+ALLOWOPTIONS 0
+DEFAULT install
+
+Label install
+  MENU Label Windows Installers. Windows 11 will not install when booted in Legacy/BIOS mode. Reboot in UEFI.
+  DESCRIPTION Windows Installers. Windows 11 will not install when booted in Legacy/BIOS mode.
+  COM32 linux.c32 /wimboot/wimboot
+  APPEND initrdfile=/wimboot/bcd,/wimboot/boot.sdi,/wimboot/pxeboot.txt,http://${next-server}/boot/winpe/startnet.cmd,http://${next-server}/boot/winpe/wait.cmd,http://${next-server}/boot/winpe/boot.wim
+
+MENU SEPARATOR
+LABEL Mint22
+  MENU LABEL Install Linux MINT 22. Consider using UEFI boot mode for this.
+  KERNEL http://${next-server}/boot/mint22/casper/vmlinuz
+  INITRD http://${next-server}/boot/mint22/casper/initrd.lz 
+  APPEND boot=casper ip=dhcp locale=en_GB netboot=url url=${next-server}/boot/linuxmint-22.1-cinnamon-64bit.iso systemd.mask=tmp.mount
+#  APPEND boot=casper ip=dhcp locale=en_GB netboot=nfs nfsroot=${next-server}:/srv/boot/mint22 systemd.mask=tmp.mount
+# file=preseed/linuxmint.seed 
+
+MENU SEPARATOR
+LABEL zorin17Core
+    MENU LABEL Install ZORIN 17.3 Core
+    KERNEL http://${next-server}/boot/zorin16/casper/vmlinuz
+    INITRD http://${next-server}/boot/zorin16/casper/initrd.lz4
+    APPEND boot=casper root=/dev/ram0 ramdisk_size=1048576 ip=dhcp locale=en_GB netboot=url url=${next-server}/boot/Zorin-OS-17.3-Core-64-bit-r2.iso ignore_uuid
+
+MENU SEPARATOR
+LABEL zorin17
+    MENU LABEL Install ZORIN 17.3 Educational. Needs 10Gbytes of memory
+    KERNEL http://${next-server}/boot/zorin16/casper/vmlinuz
+    INITRD http://${next-server}/boot/zorin16/casper/initrd.lz4
+    APPEND boot=casper root=/dev/ram0 ramdisk_size=1048576 ip=dhcp locale=en_GB netboot=url url=${next-server}/boot/Zorin-OS-17.3-Education-64-bit-r2.iso systemd.mask=tmp.mount ignore_uuid
+
+MENU SEPARATOR
+LABEL Wiping Menu
+  #Menu indent 1
+  Kernel vesamenu.c32
+  append pxelinux.cfg/default
+
+MENU SEPARATOR
+LABEL Hardware Detection Tool
+  #MENU INDENT 1
+  KERNEL hdt.c32
+
+MENU SEPARATOR
+LABEL Reboot
+  #MENU INDENT 1
+  KERNEL reboot.c32
+
+MENU SEPARATOR
+LABEL About
+  #MENU INDENT 1
+  text help
+
+
+#LABEL win7-x64
+#  MENU LABEL Install Windows  7 [64-Bit] [Service Pack 1]
+#  #MENU INDENT 1
+#  COM32 linux.c32 /wimboot/wimboot
+#  APPEND initrdfile=/wimboot/BCD,/wimboot/boot.sdi,/wimboot/pxeboot.txt,/os/win7-x64/target.txt,/os/win10-x64-TT-Pro/boot.wim
+#TEXT HELP
+#    
+#   Make sure to Enable AHCI in the BIOS before installation, If AHCI is not an option but RAID is, Enable RAID
+#    
+#   If the System has Less or More than 4GiB of RAM, Change to 4GiB
+#ENDTEXT
+#LABEL win7-x32
+#  MENU LABEL Install Windows  7 [32-Bit] [Service Pack 1]
+#  COM32 linux.c32 /wimboot/wimboot
+#  APPEND initrdfile=/wimboot/BCD,/wimboot/boot.sdi,/wimboot/pxeboot.txt,/os/win7-x32/target.txt,/os/win10-x32/boot.wim
+#TEXT HELP
+#   
+#   Make sure to Enable AHCI in the BIOS before installation, If AHCI is not an option but RAID is, Enable RAID
+#    
+#   If the System has Less or More than 2GiB of RAM, Change to 2GiB
+#ENDTEXT
+
+#menu separator
+#LABEL vista-x32
+#  MENU LABEL Install Windows Vista SP2 [32-Bit]
+#  COM32 linux.c32 /wimboot/wimboot gui
+#  APPEND initrdfile=/wimboot/BCD,/wimboot/boot.sdi,/wimboot/pxeboot.txt,/os/vista-x32-TT/target.txt,/os/vista-x32-TT/boot.wim
+
+# separator
+# LABEL XP1
+#  MENU LABEL Install Windows XP SP3 [32-Bit]
+# startrom from iso defined in winnt.sif. 
+#  kernel startrom.0
+
