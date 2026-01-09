@@ -1,6 +1,6 @@
 Wiping and Imaging Computers
 ============================
-This series of youtube videos show how to 
+This series of youtube videos show how to create a Wiping and Imaging environment that can refresh and re-install Windows 11 and Linux and collect data from each system processed such as serial number, memory and disk size, processor model, OS installed etc. It uses technologies such as DHCP, tftp , Samba File Servers, Web Servers, WinPE, PXE, Grub, pxelinux, iPXE, Django, HyperV, bootable from USB and the network. Windows 11 images are created in hyperV and updated with the latest security patches with any and all programs that the organization uses, and are prepared for installation using DISM
 1. Wipe disks using the hardware secure erase functions, (part of the SATA disk functions), to secure erase a disk using hdparm (Part 15)
 2. Create a Linux image to boot into Pre-Execution Environment using chroot (Part 18, 19n and 25), add a script to manage hdparm and erase a disk (Parts 16, 17 and 26)
 3. Erase eMMC and NVME disks using SATA commands (Parts 45 and 46)
@@ -20,7 +20,8 @@ This series of youtube videos show how to
 17. Check if a disk has been wiped or encrypted by reading track 0 (Part 42, 43 and 44))
 18. Send wiped / imaged data to a inventory management system (Part 48, 49, 50 and 51)
 
-Files that are used and described in:
+All the files that are used and described in the videos are available in github: [(https://github.com/pnesfield/WipingAndImagingComputers)]
+
 YouTube [Channel]( https://www.youtube.com/playlist?list=PLva258t-0AhzxRBGW-IaGmlmDIgnmjdft) 
 
 [Subscribe](http://youtube.com/@pnesfield?sub_confirmation=1) to the YouTube Channel
