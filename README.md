@@ -20,7 +20,7 @@ This series of youtube videos show how to create a Wiping and Imaging environmen
 17. Check if a disk has been wiped or encrypted by reading track 0 (Part 42, 43 and 44))
 18. Send wiped / imaged data to a inventory management system (Part 48, 49, 50 and 51)
 
-All the files that are used and described in the videos are available in github: [(https://github.com/pnesfield/WipingAndImagingComputers)]
+All the files that are used and described in the videos are available in github: [github.com ](https://github.com/pnesfield/WipingAndImagingComputers)
 
 YouTube [Channel]( https://www.youtube.com/playlist?list=PLva258t-0AhzxRBGW-IaGmlmDIgnmjdft) 
 
